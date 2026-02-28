@@ -6,32 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método Progressão Grafomotora | Destrave a Escrita</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
+        /* NOVA ANIMAÇÃO CARDIACA (Pulse com Escala) */
         .pulse-btn {
-            animation: pulse-green 2s infinite;
+            animation: pulse-heartbeat 2s infinite;
         }
 
-        @keyframes pulse-green {
+        @keyframes pulse-heartbeat {
             0% {
+                transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
-
-            70% {
+            50% {
+                transform: scale(1.04);
                 box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
             }
-
             100% {
+                transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
             }
         }
     </style>
-    <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -49,312 +50,147 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=880159754866026&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
-</head>
+    </head>
 
 <body class="bg-[#FAF9F6] text-gray-900 overflow-x-hidden">
 
-    <!-- BLOCO 1: Primeira Dobra (Hero Section) -->
-    <section class="bg-[#FAF9F6] px-5 py-12 flex flex-col items-center text-center">
+    <section class="bg-[#FAF9F6] px-5 py-10 flex flex-col items-center text-center">
         <div class="max-w-xl mx-auto w-full">
-            <p class="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wide mb-4">
-                PARA MÃES DE CRIANÇAS ENTRE 3 E 6 ANOS: Seu filho chora ou se frustra na hora de pegar no lápis?
+            <p class="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wide mb-3">
+                PARA MÃES DE CRIANÇAS ENTRE 3 E 6 ANOS:
             </p>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
-                O Fim do Choro na Lição: Destrave a Coordenação Motora e a Escrita do Seu Filho em 15 Minutos por Dia
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+                O Fim do Choro na Lição: Destrave a Coordenação Motora do Seu Filho em 15 Minutos
                 <span class="text-gray-800">(Mesmo que Ele Só Queira Saber de Celular).</span>
             </h1>
-            <p class="text-gray-500 text-base sm:text-lg mb-8 leading-relaxed">
-                Descubra o método prático de 65 páginas de Progressão Guiada que prepara a mão do seu pequeno para uma
-                alfabetização impecável. Imprima em casa hoje e troque o estresse por orgulho.
+            <p class="text-gray-600 text-base sm:text-lg mb-6 leading-relaxed font-medium">
+                O método prático de 65 páginas que prepara a mão do seu pequeno para uma alfabetização impecável. Imprima hoje e troque o estresse por orgulho.
             </p>
 
-            <!-- Imagem Mockup 3D -->
-            <div
-                class="w-full max-w-sm mx-auto mb-8 bg-gray-100 rounded-xl overflow-hidden shadow-inner border border-gray-200">
+            <div class="w-full max-w-sm mx-auto mb-6 bg-gray-100 rounded-xl overflow-hidden shadow-md border border-gray-200">
                 <div class="aspect-[4/3] flex items-center justify-center relative">
-                    <img src="assets/capa.webp" alt="apostila" />
-                    <!-- <span class="text-gray-400 text-sm font-semibold">[Espaço para Imagem Mockup 3D da Apostila]</span> -->
-                    <!-- Recomendo inserir a tag img aqui: <img src="seu-link-aqui" alt="Mockup Apostila" class="w-full h-full object-cover"> -->
+                    <img src="assets/capa.webp" alt="Kit Progressão Grafomotora" class="w-full h-full object-cover" />
                 </div>
             </div>
 
+            <div class="text-center mb-1">
+                <span class="text-gray-500 line-through text-sm font-bold">De R$ 97,00</span>
+                <span class="text-red-600 font-black text-sm ml-1">por apenas R$ 27,90</span>
+            </div>
             <a href="https://pay.kiwify.com.br/ORjiso7"
-                class="pulse-btn block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-lg py-5 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105">
-                👉 QUERO DESTRAVAR A ESCRITA DO MEU FILHO AGORA (Apenas R$ 27,90)
+                class="pulse-btn block w-full bg-[#25D366] text-white font-black text-[1.15rem] py-5 px-4 rounded-xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] border-b-4 border-green-700">
+                👉 SIM! QUERO DESTRAVAR MEU FILHO
             </a>
-
-            <div class="flex items-center justify-center space-x-4 mt-4 text-sm text-gray-500 font-semibold">
-                <span class="flex items-center">
-                    <svg class="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                        </path>
-                    </svg>
-                    Pagamento 100% Seguro
-                </span>
-                <span class="flex items-center">
-                    <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                        </path>
-                    </svg>
-                    Acesso Imediato
-                </span>
+            
+            <div class="flex items-center justify-center space-x-4 mt-4 text-xs text-gray-500 font-bold uppercase tracking-wider">
+                <span class="flex items-center"><span class="text-green-500 text-lg mr-1">🔒</span> Compra Segura</span>
+                <span class="flex items-center"><span class="text-blue-500 text-lg mr-1">⚡</span> Acesso Imediato</span>
             </div>
         </div>
     </section>
 
-    <!-- BLOCO 2: A Dor e Inimigo Comum (Agitação) -->
     <section class="bg-gray-100 px-5 py-12">
         <div class="max-w-xl mx-auto w-full text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mb-6">
                 O celular está atrofiando as mãos dessa geração <span class="text-red-600">(e a culpa não é sua).</span>
             </h2>
-            <div class="text-gray-700 text-base leading-relaxed space-y-4 text-left">
-                <p>Você já reparou como eles deslizam o dedo nas telas com perfeição, mas <strong>não conseguem segurar
-                        um lápis com firmeza?</strong> Os dedinhos ficam fracos, o traço sai trêmulo e a frustração toma
-                    conta.</p>
-                <p>Nós fomos levados a acreditar que o celular era apenas inofensivo, mas a verdade é que a falta de
-                    estímulo motor na primeira infância está criando um verdadeiro <strong>pesadelo para a
-                        alfabetização.</strong></p>
-                <p>Uma criança que não domina a coordenação motora fina hoje, será a criança que chora para fazer a
-                    lição de casa amanhã. Ela fica para trás na escola, sente vergonha da própria letra e perde a
-                    autoconfiança.</p>
-                <p class="font-bold text-gray-900">Você tem o poder de mudar isso hoje, antes que o problema se agrave.
-                </p>
+            <div class="text-gray-700 text-base leading-relaxed space-y-4 text-left font-medium">
+                <p>Você já reparou como eles deslizam o dedo nas telas com perfeição, mas <strong>não conseguem segurar um lápis com firmeza?</strong> Os dedinhos ficam fracos, o traço sai trêmulo e a frustração toma conta.</p>
+                <p>A falta de estímulo motor na primeira infância está criando um verdadeiro <strong>pesadelo para a alfabetização.</strong></p>
+                <p>Uma criança que não domina a coordenação motora fina hoje, será a criança que chora para fazer a lição amanhã. Ela fica para trás, sente vergonha da letra e perde a confiança.</p>
+                <p class="font-bold text-gray-900 text-lg text-center mt-6">Você tem o poder de mudar isso hoje.</p>
             </div>
         </div>
     </section>
 
-    <!-- BLOCO 3: O Mecanismo Único (A Solução Lógica) -->
     <section class="bg-[#FAF9F6] px-5 py-12">
         <div class="max-w-xl mx-auto w-full">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mb-8 text-center">
                 Conheça o Método de Progressão Guiada
             </h2>
             <div class="space-y-6">
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 mt-1">
-                        <svg class="w-6 h-6 text-[#25D366]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="text-lg font-bold text-gray-900">Treinamento Neuro-Motor Oculto</h3>
-                        <p class="text-gray-600 mt-1">Não é apenas "passar o lápis por cima de pontilhados". São
-                            atividades desenhadas estrategicamente para parecerem brincadeiras, mas que ativam as
-                            conexões cerebrais corretas para o domínio motor.</p>
+                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <span class="text-3xl mr-4">🧠</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Treinamento Oculto</h3>
+                        <p class="text-gray-600 mt-1 text-sm">Atividades desenhadas para parecerem brincadeiras, mas que ativam as conexões cerebrais corretas para o domínio motor.</p>
                     </div>
                 </div>
-
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 mt-1">
-                        <svg class="w-6 h-6 text-[#25D366]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="text-lg font-bold text-gray-900">Evolução em Níveis (Zero Frustração)</h3>
-                        <p class="text-gray-600 mt-1">O método é dividido do nível mais fácil (para gerar pequenas
-                            vitórias e autoconfiança) até os traços avançados. Seu filho evolui sem perceber que está
-                            sendo testado.</p>
+                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <span class="text-3xl mr-4">📈</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Evolução sem Frustração</h3>
+                        <p class="text-gray-600 mt-1 text-sm">Do nível mais fácil ao avançado. Seu filho evolui conquistando pequenas vitórias sem perceber que está sendo testado.</p>
                     </div>
                 </div>
-
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 mt-1">
-                        <svg class="w-6 h-6 text-[#25D366]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="text-lg font-bold text-gray-900">Resgate do Foco e Concentração</h3>
-                        <p class="text-gray-600 mt-1">Exercícios que prendem a atenção de crianças hiperestimuladas por
-                            telas, devolvendo a capacidade de sentar, focar e concluir uma tarefa de início ao fim.</p>
+                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <span class="text-3xl mr-4">🎯</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Resgate do Foco</h3>
+                        <p class="text-gray-600 mt-1 text-sm">Exercícios que prendem a atenção de crianças hiperestimuladas por telas, devolvendo a capacidade de focar.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BLOCO 4: O Que Você Vai Receber (Tangibilidade) -->
     <section class="bg-gray-100 px-5 py-12">
         <div class="max-w-xl mx-auto w-full text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                O que tem dentro das 65 páginas?
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mb-6">
+                O que tem dentro do material?
             </h2>
 
-            <ul class="text-left bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-3 mb-8">
-                <li class="flex items-center text-gray-700 font-medium">
-                    <span class="text-[#FF6600] mr-2">✏️</span> Traços iniciais e noção espacial.
-                </li>
-                <li class="flex items-center text-gray-700 font-medium">
-                    <span class="text-[#FF6600] mr-2">🎯</span> Exercícios de domínio e pressão do lápis.
-                </li>
-                <li class="flex items-center text-gray-700 font-medium">
-                    <span class="text-[#FF6600] mr-2">🧩</span> Labirintos de foco para treinar a persistência.
-                </li>
-                <li class="flex items-center text-gray-700 font-medium">
-                    <span class="text-[#FF6600] mr-2">🔤</span> Preparação direta para o desenho de letras e números.
-                </li>
-            </ul>
-
-            <!-- 3 Imagens Pequenas -->
-            <div class="grid grid-cols-3 gap-3 mb-8">
-                <div
-                    class="aspect-square bg-white rounded-lg flex items-center justify-center border border-gray-300 relative overflow-hidden">
-                    <img src="assets/tracos.webp" alt="Traços" class="w-full h-full object-contain" />
+            <div class="grid grid-cols-3 gap-3 mb-6">
+                <div class="aspect-square bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 overflow-hidden shadow-sm">
+                    <img src="assets/tracos.webp" alt="Traços" class="w-full h-full object-cover" />
                 </div>
-                <div
-                    class="aspect-square bg-gray-200 rounded-lg flex items-center justify-center border border-gray-300 relative overflow-hidden">
-                    <img src="assets/labirinto.webp" alt="Labirinto" class="w-full h-full object-fit" />
+                <div class="aspect-square bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 overflow-hidden shadow-sm">
+                    <img src="assets/labirinto.webp" alt="Labirinto" class="w-full h-full object-cover" />
                 </div>
-                <div
-                    class="aspect-square bg-white rounded-lg flex items-center justify-center border border-gray-300 relative overflow-hidden">
-                    <img src="assets/img 3.webp" alt="Atividade de Recorte" class="w-full h-full object-contain" />
+                <div class="aspect-square bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 overflow-hidden shadow-sm">
+                    <img src="assets/img 3.webp" alt="Atividades" class="w-full h-full object-cover" />
                 </div>
             </div>
 
+            <div class="text-center mb-1 mt-6">
+                <span class="text-gray-500 line-through text-sm font-bold">De R$ 97,00</span>
+                <span class="text-red-600 font-black text-sm ml-1">por apenas R$ 27,90</span>
+            </div>
             <a href="https://pay.kiwify.com.br/ORjiso7"
-                class="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-lg py-5 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105">
-                👉 QUERO DESTRAVAR A ESCRITA DO MEU FILHO AGORA (Apenas R$ 27,90)
+                class="pulse-btn block w-full bg-[#25D366] text-white font-black text-[1.15rem] py-5 px-4 rounded-xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] border-b-4 border-green-700">
+                👉 QUERO BAIXAR O MATERIAL AGORA
             </a>
-            <br/>
-            <span>🎁 <b>ATENÇÃO: Quer o Kit Completo que você viu no anúncio?</b> > Ao clicar no botão abaixo e garantir a sua Apostila Principal por R$ 27,90, você vai destravar a opção de adicionar os Guias Extras (Desmame Digital e 100 Atividades) com um desconto exclusivo direto na página de pagamento!</span>
-        </div>
-    </section>
-
-    <!-- BLOCO 5: Ancoragem de Preço e Oferta Irrecusável -->
-    <section class="bg-[#FAF9F6] px-5 py-12">
-        <div class="max-w-xl mx-auto w-full text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                Quanto custa o futuro do seu filho?
-            </h2>
-            <div class="text-gray-700 text-base leading-relaxed space-y-4">
-                <p>Se você precisasse contratar sessões semanais com um psicopedagogo ou terapeuta ocupacional, pagaria
-                    facilmente <strong>mais de R$ 150,00 por uma única hora.</strong></p>
-                <p>Materiais estruturados de escolas particulares de elite custam centenas de reais.</p>
-                <p>Mas hoje, você não vai pagar nem a fração disso. Pelo preço menor que um lanche simples de fast-food,
-                    você leva o método completo e vitalício para imprimir quantas vezes quiser.</p>
-
-                <div class="mt-8 p-6 bg-[#fff8f3] border-2 border-[#FF6600] rounded-2xl relative">
-                    <div
-                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#FF6600] text-white px-4 py-1 rounded-full font-bold text-sm shadow-md">
-                        OFERTA ESPECIAL
-                    </div>
-                    <p class="text-gray-500 line-through text-lg">De R$ 67,00</p>
-                    <p class="text-4xl font-black text-gray-900 my-2">Por apenas <span class="text-[#25D366]">R$
-                            27,90</span></p>
-                    <p class="text-sm text-gray-600 font-medium">Ou em até 5x no cartão. Acesso Imediato.</p>
-                </div>
+            
+            <div class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-left">
+                <p class="text-sm text-yellow-800"><span class="font-bold">🎁 DICA:</span> Quer o Kit Completo do anúncio? Ao clicar no botão acima, você poderá adicionar os Guias Extras (Desmame Digital) com um desconto exclusivo direto na página de pagamento!</p>
             </div>
         </div>
     </section>
 
-    <!-- BLOCO 6: Garantia Risco Zero e CTA Final -->
-    <section class="bg-gray-100 px-5 py-12">
+    <section class="bg-[#FAF9F6] px-5 py-12 pb-20">
         <div class="max-w-xl mx-auto w-full text-center">
-
-            <div class="flex justify-center mb-6">
-                <!-- Selo de Garantia Placeholder -->
-                <div
-                    class="w-32 h-32 bg-yellow-100 rounded-full border-4 border-yellow-400 flex items-center justify-center relative shadow-lg">
-                    <svg class="w-16 h-16 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <div class="absolute inset-0 flex items-center justify-center transform rotate-[-15deg]">
-                        <span class="text-[10px] font-black uppercase text-yellow-900 mt-14 bg-white px-1 rounded">7
-                            Dias</span>
-                    </div>
-                </div>
+            <div class="flex justify-center mb-4">
+                <span class="text-6xl">🛡️</span>
             </div>
-
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            <h2 class="text-2xl font-black text-gray-900 mb-4">
                 Garantia Incondicional de 7 Dias.
             </h2>
-            <p id="comprar" class="text-gray-700 mb-8 leading-relaxed">
-                Baixe a apostila, imprima e teste na prática com seu filho. Se ele não gostar, não se interessar ou você
-                não ver evolução nos traços, <strong>nós devolvemos 100% do seu dinheiro.</strong> Sem burocracia, sem
-                perguntas. O risco é todo meu.
+            <p id="comprar" class="text-gray-700 mb-8 font-medium">
+                Imprima e teste na prática. Se ele não gostar ou você não ver evolução, <strong>nós devolvemos 100% do seu dinheiro.</strong> Sem perguntas. O risco é todo meu.
             </p>
 
-            <span>🎁 <b>ATENÇÃO: Quer o Kit Completo que você viu no anúncio?</b> > Ao clicar no botão abaixo e garantir a sua Apostila Principal por R$ 27,90, você vai destravar a opção de adicionar os Guias Extras (Desmame Digital e 100 Atividades) com um desconto exclusivo direto na página de pagamento!</span>
-            <br/>
-            <br/>
+            <div class="text-center mb-1 mt-6">
+                <span class="text-gray-500 line-through text-sm font-bold">De R$ 97,00</span>
+                <span class="text-red-600 font-black text-sm ml-1">por apenas R$ 27,90</span>
+            </div>
             <a href="https://pay.kiwify.com.br/ORjiso7"
-                class="pulse-btn block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-lg sm:text-xl py-6 px-4 rounded-full shadow-2xl transition-transform transform hover:scale-105 border-b-4 border-green-700">
+                class="pulse-btn block w-full bg-[#25D366] text-white font-black text-[1.2rem] py-6 px-4 rounded-xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] border-b-4 border-green-700">
                 👉 SIM! QUERO O MÉTODO AGORA
             </a>
-            <p class="text-xs text-gray-500 mt-4 font-medium">Você será redirecionado para a página de pagamento seguro
-                da plataforma.</p>
-        </div>
-    </section>
-
-    <!-- BLOCO 7: FAQ (Quebra de Objeções Finais) -->
-    <section class="bg-[#FAF9F6] px-5 py-12 pb-24">
-        <div class="max-w-xl mx-auto w-full">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
-                Dúvidas Frequentes
-            </h2>
-
-            <div class="space-y-4">
-                <!-- Pergunta 1 -->
-                <div class="border border-gray-200 rounded-xl p-4 shadow-sm">
-                    <h3 class="font-bold text-gray-900 flex items-center">
-                        <svg class="w-5 h-5 text-[#FF6600] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        Como vou receber o material?
-                    </h3>
-                    <p class="text-gray-600 text-sm mt-2 ml-7">O produto é 100% digital. Assim que o pagamento for
-                        confirmado (no PIX ou cartão é na hora), você receberá um e-mail com o link para baixar o
-                        arquivo em PDF de alta qualidade.</p>
-                </div>
-
-                <!-- Pergunta 2 -->
-                <div class="border border-gray-200 rounded-xl p-4 shadow-sm">
-                    <h3 class="font-bold text-gray-900 flex items-center">
-                        <svg class="w-5 h-5 text-[#FF6600] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        Preciso imprimir tudo de uma vez?
-                    </h3>
-                    <p class="text-gray-600 text-sm mt-2 ml-7">Não! Você pode imprimir apenas as páginas que vai usar no
-                        dia. Inclusive, se o seu filho gostar muito de uma atividade, você pode imprimir a mesma página
-                        várias vezes.</p>
-                </div>
-
-                <!-- Pergunta 3 -->
-                <div class="border border-gray-200 rounded-xl p-4 shadow-sm">
-                    <h3 class="font-bold text-gray-900 flex items-center">
-                        <svg class="w-5 h-5 text-[#FF6600] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        Serve para crianças canhotas?
-                    </h3>
-                    <p class="text-gray-600 text-sm mt-2 ml-7">Com certeza. O método trabalha o desenvolvimento
-                        neurológico e motor global, ajudando tanto destros quanto canhotos a ganharem precisão, firmeza
-                        e controle direcional natural.</p>
-                </div>
-            </div>
-
-            <p class="text-center text-xs text-gray-400 mt-12">© 2024 Método Progressão Grafomotora. Todos os direitos
-                reservados.</p>
+            
+            <p class="text-center text-xs text-gray-400 mt-12">© 2024 Método Progressão Grafomotora.<br>Todos os direitos reservados.</p>
         </div>
     </section>
 
 </body>
-
 </html>
