@@ -4,16 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Método Progressão Grafomotora | Destrave a Escrita</title>
+    <title>Avaliação: Desenvolvimento Motor Infantil</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
+            background-color: #F8FAFC;
         }
 
-        /* NOVA ANIMAÇÃO CARDIACA (Pulse com Escala) */
+        /* Fundo azulzinho muito claro, tom clínico */
+        .fade-in {
+            animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .pulse-btn {
             animation: pulse-heartbeat 2s infinite;
         }
@@ -21,18 +37,28 @@
         @keyframes pulse-heartbeat {
             0% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
             }
+
             50% {
-                transform: scale(1.04);
+                transform: scale(1.03);
                 box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
             }
+
             100% {
                 transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
             }
         }
+
+        /* Efeito de seleção na opção */
+        .option-btn:active {
+            transform: scale(0.98);
+            background-color: #EFF6FF;
+            border-color: #3B82F6;
+        }
     </style>
+    <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -50,147 +76,135 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=880159754866026&ev=PageView&noscript=1" /></noscript>
-    </head>
+    <!-- End Meta Pixel Code -->
+</head>
 
-<body class="bg-[#FAF9F6] text-gray-900 overflow-x-hidden">
+<body class="text-slate-800 flex flex-col min-h-screen">
 
-    <section class="bg-[#FAF9F6] px-5 py-10 flex flex-col items-center text-center">
-        <div class="max-w-xl mx-auto w-full">
-            <p class="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wide mb-3">
-                PARA MÃES DE CRIANÇAS ENTRE 3 E 6 ANOS:
-            </p>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
-                O Fim do Choro na Lição: Destrave a Coordenação Motora do Seu Filho em 15 Minutos
-                <span class="text-gray-800">(Mesmo que Ele Só Queira Saber de Celular).</span>
-            </h1>
-            <p class="text-gray-600 text-base sm:text-lg mb-6 leading-relaxed font-medium">
-                O método prático de 65 páginas que prepara a mão do seu pequeno para uma alfabetização impecável. Imprima hoje e troque o estresse por orgulho.
-            </p>
+    <header class="bg-white p-4 shadow-sm border-b border-slate-200 flex justify-center items-center">
+        <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+            </path>
+        </svg>
+        <h1 class="text-sm font-bold text-slate-600 tracking-wide uppercase">Avaliação Segura • 3 a 6 Anos</h1>
+    </header>
 
-            <div class="w-full max-w-sm mx-auto mb-6 bg-gray-100 rounded-xl overflow-hidden shadow-md border border-gray-200">
-                <div class="aspect-[4/3] flex items-center justify-center relative">
-                    <img src="assets/capa.webp" alt="Kit Progressão Grafomotora" class="w-full h-full object-cover" />
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-6">
+        <div id="quiz-container"
+            class="bg-white max-w-lg w-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6 sm:p-8 border border-slate-100 fade-in">
+
+            <div id="progress-bar-container" class="w-full bg-slate-100 rounded-full h-2 mb-8 hidden overflow-hidden">
+                <div id="progress-bar" class="bg-indigo-600 h-2 rounded-full transition-all duration-500 ease-out"
+                    style="width: 0%"></div>
+            </div>
+
+            <h2 id="question-title"
+                class="text-2xl sm:text-3xl font-black text-slate-800 mb-8 text-center leading-tight">
+                Descubra o nível de dependência digital do seu filho e o impacto na alfabetização.
+            </h2>
+
+            <div id="options-container" class="space-y-4">
+                <button onclick="startQuiz()"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 sm:py-5 rounded-xl shadow-lg shadow-indigo-200 transition-all text-lg border-b-4 border-indigo-800 active:border-b-0 active:translate-y-1">
+                    INICIAR AVALIAÇÃO AGORA
+                </button>
+            </div>
+
+            <p id="disclaimer" class="text-xs text-slate-400 text-center mt-8 font-medium">Leva menos de 1 minuto.
+                Respostas confidenciais.</p>
+        </div>
+    </main>
+
+    <script>
+        const questions = [
+            { question: "1. Quantas horas por dia, em média, seu filho passa no celular, tablet ou TV?", options: ["Menos de 1 hora", "De 1 a 3 horas", "Mais de 3 horas (Ele adora)"] },
+            { question: "2. Como ele reage quando você tira o celular dele?", options: ["Devolve tranquilo", "Fica chateado, mas aceita", "Chora muito, grita ou faz birra"] },
+            { question: "3. Você já notou que ele tem dificuldade ou foge na hora de segurar o lápis?", options: ["Não, ele pega super bem", "Um pouco, o traço é bem fraquinho", "Sim! Ele chora ou recusa a lição"] },
+            { question: "4. Qual é o seu maior medo em relação ao futuro escolar dele?", options: ["Que ele não consiga acompanhar a turma", "Que ele tenha dificuldade na alfabetização", "Que o celular atrase o desenvolvimento dele"] }
+        ]
+
+        let currentQuestionIndex = 0
+        const titleEl = document.getElementById('question-title')
+        const optionsContainer = document.getElementById('options-container')
+        const progressContainer = document.getElementById('progress-bar-container')
+        const progressBar = document.getElementById('progress-bar')
+        const disclaimer = document.getElementById('disclaimer')
+
+        function startQuiz() {
+            disclaimer.style.display = 'none'
+            progressContainer.classList.remove('hidden')
+            showQuestion()
+        }
+
+        function showQuestion() {
+            const currentQ = questions[currentQuestionIndex]
+            titleEl.innerText = currentQ.question
+            titleEl.classList.remove('fade-in')
+            void titleEl.offsetWidth
+            titleEl.classList.add('fade-in')
+
+            optionsContainer.innerHTML = ''
+            const progress = ((currentQuestionIndex) / questions.length) * 100
+            progressBar.style.width = `${progress}%`
+
+            currentQ.options.forEach(option => {
+                const btn = document.createElement('button')
+                btn.innerText = option
+                btn.className = "option-btn w-full bg-white border-2 border-slate-200 text-slate-700 font-bold py-4 px-6 rounded-xl text-left transition-all duration-200 fade-in shadow-sm hover:border-indigo-300 hover:bg-slate-50 text-base sm:text-lg"
+                btn.onclick = () => {
+                    btn.classList.add('bg-indigo-50', 'border-indigo-500') // Feedback visual rápido
+                    setTimeout(handleAnswer, 250) // Pausa leve para a mãe ver que clicou
+                }
+                optionsContainer.appendChild(btn)
+            })
+        }
+
+        function handleAnswer() {
+            currentQuestionIndex++
+            if (currentQuestionIndex < questions.length) {
+                showQuestion()
+            } else {
+                showAnalyzingScreen()
+            }
+        }
+
+        function showAnalyzingScreen() {
+            progressBar.style.width = '100%'
+            titleEl.innerText = "Analisando as respostas..."
+            optionsContainer.innerHTML = `
+                <div class="flex justify-center my-10 fade-in">
+                    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-600"></div>
                 </div>
-            </div>
+                <p class="text-center text-slate-500 font-semibold fade-in">Cruzando dados com padrões de desenvolvimento infantil...</p>
+            `
+            setTimeout(showResultScreen, 3500)
+        }
 
-            <div class="text-center mb-1">
-                <span class="text-gray-500 line-through text-sm font-bold">De R$ 97,00</span>
-                <span class="text-red-600 font-black text-sm ml-1">por apenas R$ 27,90</span>
-            </div>
-            <a href="https://pay.kiwify.com.br/ORjiso7"
-                class="pulse-btn block w-full bg-[#25D366] text-white font-black text-[1.15rem] py-5 px-4 rounded-xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] border-b-4 border-green-700">
-                👉 SIM! QUERO DESTRAVAR MEU FILHO
-            </a>
-            
-            <div class="flex items-center justify-center space-x-4 mt-4 text-xs text-gray-500 font-bold uppercase tracking-wider">
-                <span class="flex items-center"><span class="text-green-500 text-lg mr-1">🔒</span> Compra Segura</span>
-                <span class="flex items-center"><span class="text-blue-500 text-lg mr-1">⚡</span> Acesso Imediato</span>
-            </div>
-        </div>
-    </section>
+        function showResultScreen() {
+            progressContainer.style.display = 'none'
+            titleEl.innerHTML = `<span class="text-red-600">ALERTA:</span> O nível de dependência digital e atraso motor pode estar ALTO.`
 
-    <section class="bg-gray-100 px-5 py-12">
-        <div class="max-w-xl mx-auto w-full text-center">
-            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mb-6">
-                O celular está atrofiando as mãos dessa geração <span class="text-red-600">(e a culpa não é sua).</span>
-            </h2>
-            <div class="text-gray-700 text-base leading-relaxed space-y-4 text-left font-medium">
-                <p>Você já reparou como eles deslizam o dedo nas telas com perfeição, mas <strong>não conseguem segurar um lápis com firmeza?</strong> Os dedinhos ficam fracos, o traço sai trêmulo e a frustração toma conta.</p>
-                <p>A falta de estímulo motor na primeira infância está criando um verdadeiro <strong>pesadelo para a alfabetização.</strong></p>
-                <p>Uma criança que não domina a coordenação motora fina hoje, será a criança que chora para fazer a lição amanhã. Ela fica para trás, sente vergonha da letra e perde a confiança.</p>
-                <p class="font-bold text-gray-900 text-lg text-center mt-6">Você tem o poder de mudar isso hoje.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#FAF9F6] px-5 py-12">
-        <div class="max-w-xl mx-auto w-full">
-            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mb-8 text-center">
-                Conheça o Método de Progressão Guiada
-            </h2>
-            <div class="space-y-6">
-                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                    <span class="text-3xl mr-4">🧠</span>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900">Treinamento Oculto</h3>
-                        <p class="text-gray-600 mt-1 text-sm">Atividades desenhadas para parecerem brincadeiras, mas que ativam as conexões cerebrais corretas para o domínio motor.</p>
+            optionsContainer.innerHTML = `
+                <div class="text-slate-700 text-base space-y-4 mb-8 fade-in leading-relaxed">
+                    <p>O excesso de telas e a frustração com o lápis são os principais sintomas de <strong>Atraso na Coordenação Motora Fina</strong>.</p>
+                    <p>Se nada for feito agora, ele poderá enfrentar sérias dificuldades na fase de alfabetização.</p>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg text-amber-900 shadow-sm mt-4">
+                        <strong class="block mb-1 text-amber-700">A BOA NOTÍCIA:</strong> Você pode reverter isso em casa, com apenas 15 minutos por dia, usando nosso método de progressão guiada.
                     </div>
                 </div>
-                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                    <span class="text-3xl mr-4">📈</span>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900">Evolução sem Frustração</h3>
-                        <p class="text-gray-600 mt-1 text-sm">Do nível mais fácil ao avançado. Seu filho evolui conquistando pequenas vitórias sem perceber que está sendo testado.</p>
-                    </div>
+                
+                <div class="text-center mb-2 fade-in">
+                    <span class="text-slate-400 line-through text-sm font-bold">De R$ 147,00</span>
+                    <span class="text-red-600 font-black text-sm ml-2">por apenas R$ 67,90</span>
                 </div>
-                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                    <span class="text-3xl mr-4">🎯</span>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900">Resgate do Foco</h3>
-                        <p class="text-gray-600 mt-1 text-sm">Exercícios que prendem a atenção de crianças hiperestimuladas por telas, devolvendo a capacidade de focar.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gray-100 px-5 py-12">
-        <div class="max-w-xl mx-auto w-full text-center">
-            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mb-6">
-                O que tem dentro do material?
-            </h2>
-
-            <div class="grid grid-cols-3 gap-3 mb-6">
-                <div class="aspect-square bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 overflow-hidden shadow-sm">
-                    <img src="assets/tracos.webp" alt="Traços" class="w-full h-full object-cover" />
-                </div>
-                <div class="aspect-square bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 overflow-hidden shadow-sm">
-                    <img src="assets/labirinto.webp" alt="Labirinto" class="w-full h-full object-cover" />
-                </div>
-                <div class="aspect-square bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 overflow-hidden shadow-sm">
-                    <img src="assets/img 3.webp" alt="Atividades" class="w-full h-full object-cover" />
-                </div>
-            </div>
-
-            <div class="text-center mb-1 mt-6">
-                <span class="text-gray-500 line-through text-sm font-bold">De R$ 97,00</span>
-                <span class="text-red-600 font-black text-sm ml-1">por apenas R$ 27,90</span>
-            </div>
-            <a href="https://pay.kiwify.com.br/ORjiso7"
-                class="pulse-btn block w-full bg-[#25D366] text-white font-black text-[1.15rem] py-5 px-4 rounded-xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] border-b-4 border-green-700">
-                👉 QUERO BAIXAR O MATERIAL AGORA
-            </a>
-            
-            <div class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-left">
-                <p class="text-sm text-yellow-800"><span class="font-bold">🎁 DICA:</span> Quer o Kit Completo do anúncio? Ao clicar no botão acima, você poderá adicionar os Guias Extras (Desmame Digital) com um desconto exclusivo direto na página de pagamento!</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#FAF9F6] px-5 py-12 pb-20">
-        <div class="max-w-xl mx-auto w-full text-center">
-            <div class="flex justify-center mb-4">
-                <span class="text-6xl">🛡️</span>
-            </div>
-            <h2 class="text-2xl font-black text-gray-900 mb-4">
-                Garantia Incondicional de 7 Dias.
-            </h2>
-            <p id="comprar" class="text-gray-700 mb-8 font-medium">
-                Imprima e teste na prática. Se ele não gostar ou você não ver evolução, <strong>nós devolvemos 100% do seu dinheiro.</strong> Sem perguntas. O risco é todo meu.
-            </p>
-
-            <div class="text-center mb-1 mt-6">
-                <span class="text-gray-500 line-through text-sm font-bold">De R$ 97,00</span>
-                <span class="text-red-600 font-black text-sm ml-1">por apenas R$ 27,90</span>
-            </div>
-            <a href="https://pay.kiwify.com.br/ORjiso7"
-                class="pulse-btn block w-full bg-[#25D366] text-white font-black text-[1.2rem] py-6 px-4 rounded-xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] border-b-4 border-green-700">
-                👉 SIM! QUERO O MÉTODO AGORA
-            </a>
-            
-            <p class="text-center text-xs text-gray-400 mt-12">© 2024 Método Progressão Grafomotora.<br>Todos os direitos reservados.</p>
-        </div>
-    </section>
-
+                
+                <a href="https://pay.kiwify.com.br/GtEoYz9" class="pulse-btn block w-full bg-[#25D366] text-white text-center font-black text-[1.15rem] py-5 px-4 rounded-xl shadow-lg border-b-4 border-green-700 fade-in decoration-none tracking-tight">
+                    👉 ACESSAR O KIT DE DESMAME AGORA
+                </a>
+            `
+        }
+    </script>
 </body>
+
 </html>
