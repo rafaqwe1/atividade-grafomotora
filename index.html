@@ -13,7 +13,6 @@
             background-color: #F8FAFC;
         }
 
-        /* Fundo azulzinho muito claro, tom clínico */
         .fade-in {
             animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -23,7 +22,6 @@
                 opacity: 0;
                 transform: translateY(15px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -37,28 +35,24 @@
         @keyframes pulse-heartbeat {
             0% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); /* Mudado para vermelho urgência */
             }
-
             50% {
                 transform: scale(1.03);
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+                box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
             }
-
             100% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
             }
         }
 
-        /* Efeito de seleção na opção */
         .option-btn:active {
             transform: scale(0.98);
             background-color: #EFF6FF;
             border-color: #3B82F6;
         }
     </style>
-    <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -76,8 +70,7 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=880159754866026&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
-</head>
+    </head>
 
 <body class="text-slate-800 flex flex-col min-h-screen">
 
@@ -101,27 +94,27 @@
 
             <h2 id="question-title"
                 class="text-2xl sm:text-3xl font-black text-slate-800 mb-8 text-center leading-tight">
-                Descubra o nível de dependência digital do seu filho e o impacto na alfabetização.
+                Descubra o nível de dependência digital do seu filho e o risco de atraso na alfabetização.
             </h2>
 
             <div id="options-container" class="space-y-4">
                 <button onclick="startQuiz()"
                     class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 sm:py-5 rounded-xl shadow-lg shadow-indigo-200 transition-all text-lg border-b-4 border-indigo-800 active:border-b-0 active:translate-y-1">
-                    INICIAR AVALIAÇÃO AGORA
+                    INICIAR AVALIAÇÃO GRATUITA
                 </button>
             </div>
 
-            <p id="disclaimer" class="text-xs text-slate-400 text-center mt-8 font-medium">Leva menos de 1 minuto.
-                Respostas confidenciais.</p>
+            <p id="disclaimer" class="text-xs text-slate-400 text-center mt-8 font-medium">Leva menos de 1 minuto. Respostas 100% confidenciais.</p>
         </div>
     </main>
 
     <script>
+        // PERGUNTAS ESTRATÉGICAS DE ALTA CONVERSÃO
         const questions = [
-            { question: "1. Quantas horas por dia, em média, seu filho passa no celular, tablet ou TV?", options: ["Menos de 1 hora", "De 1 a 3 horas", "Mais de 3 horas (Ele adora)"] },
-            { question: "2. Como ele reage quando você tira o celular dele?", options: ["Devolve tranquilo", "Fica chateado, mas aceita", "Chora muito, grita ou faz birra"] },
-            { question: "3. Você já notou que ele tem dificuldade ou foge na hora de segurar o lápis?", options: ["Não, ele pega super bem", "Um pouco, o traço é bem fraquinho", "Sim! Ele chora ou recusa a lição"] },
-            { question: "4. Qual é o seu maior medo em relação ao futuro escolar dele?", options: ["Que ele não consiga acompanhar a turma", "Que ele tenha dificuldade na alfabetização", "Que o celular atrase o desenvolvimento dele"] }
+            { question: "1. Em média, quanto tempo por dia seu filho passa no celular, tablet ou TV?", options: ["Menos de 1 hora (Consigo controlar bem)", "Entre 1 e 2 horas (Geralmente para ele comer/ficar quieto)", "Mais de 2 horas (Sinto que ele está dependente)", "Ele chora e faz birra se eu tentar tirar a tela"] },
+            { question: "2. Quando ele precisa usar um lápis de cor ou giz de cera, como ele segura?", options: ["Segura firme e desenha sem problemas", "Segura com a mão toda fechada (como um bastão)", "O traço sai fraco, trêmulo ou a mão 'cansa' rápido", "Tem preguiça, foge ou chora ao ver papel e lápis"] },
+            { question: "3. Pensando na fase de alfabetização, qual é o seu maior medo hoje?", options: ["Que ele sofra por não conseguir acompanhar a turma", "Que a professora diga que ele tem déficit ou atraso", "Que ele crie um bloqueio e odeie estudar para sempre", "Nenhum, acho que ele vai se sair bem"] },
+            { question: "4. A ciência prova que é possível reverter esse bloqueio motor em casa. Você estaria disposta a investir APENAS 15 MINUTOS do seu dia para resolver isso?", options: ["SIM! Eu farei o que for preciso pelo meu filho.", "Não tenho 15 minutos (Prefiro deixar como está)."] }
         ]
 
         let currentQuestionIndex = 0
@@ -134,6 +127,8 @@
         function startQuiz() {
             disclaimer.style.display = 'none'
             progressContainer.classList.remove('hidden')
+            // Dispara evento de inicio pro Pixel
+            fbq('trackCustom', 'StartedQuiz'); 
             showQuestion()
         }
 
@@ -151,10 +146,11 @@
             currentQ.options.forEach(option => {
                 const btn = document.createElement('button')
                 btn.innerText = option
-                btn.className = "option-btn w-full bg-white border-2 border-slate-200 text-slate-700 font-bold py-4 px-6 rounded-xl text-left transition-all duration-200 fade-in shadow-sm hover:border-indigo-300 hover:bg-slate-50 text-base sm:text-lg"
+                // Design focado em fácil leitura para mobile
+                btn.className = "option-btn w-full bg-white border-2 border-slate-200 text-slate-700 font-bold py-4 px-5 rounded-xl text-left transition-all duration-200 fade-in shadow-sm hover:border-indigo-300 hover:bg-slate-50 text-base"
                 btn.onclick = () => {
-                    btn.classList.add('bg-indigo-50', 'border-indigo-500') // Feedback visual rápido
-                    setTimeout(handleAnswer, 250) // Pausa leve para a mãe ver que clicou
+                    btn.classList.add('bg-indigo-50', 'border-indigo-500')
+                    setTimeout(handleAnswer, 300) 
                 }
                 optionsContainer.appendChild(btn)
             })
@@ -171,7 +167,7 @@
 
         function showAnalyzingScreen() {
             progressBar.style.width = '100%'
-            titleEl.innerText = "Analisando as respostas..."
+            titleEl.innerText = "Analisando suas respostas..."
             optionsContainer.innerHTML = `
                 <div class="flex justify-center my-10 fade-in">
                     <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-600"></div>
@@ -183,25 +179,38 @@
 
         function showResultScreen() {
             progressContainer.style.display = 'none'
-            titleEl.innerHTML = `<span class="text-red-600">ALERTA:</span> O nível de dependência digital e atraso motor pode estar ALTO.`
+            // Headine agressiva focada no problema
+            titleEl.innerHTML = `<span class="text-red-600 font-black">ALERTA VERMELHO:</span> O uso de telas está causando um Atraso Motor Silencioso no seu filho.`
+
+            // Dispara evento de conclusão pro Pixel
+            fbq('trackCustom', 'FinishedQuiz'); 
 
             optionsContainer.innerHTML = `
-                <div class="text-slate-700 text-base space-y-4 mb-8 fade-in leading-relaxed">
-                    <p>O excesso de telas e a frustração com o lápis são os principais sintomas de <strong>Atraso na Coordenação Motora Fina</strong>.</p>
-                    <p>Se nada for feito agora, ele poderá enfrentar sérias dificuldades na fase de alfabetização.</p>
-                    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg text-amber-900 shadow-sm mt-4">
-                        <strong class="block mb-1 text-amber-700">A BOA NOTÍCIA:</strong> Você pode reverter isso em casa, com apenas 15 minutos por dia, usando nosso método de progressão guiada.
+                <div class="text-slate-700 text-base space-y-4 mb-6 fade-in leading-relaxed">
+                    <p>A dificuldade ou preguiça com o lápis não é culpa dele. A musculatura das mãos dele está enfraquecida pelo excesso de toques no celular.</p>
+                    <p>Se nada for feito <strong>agora</strong>, a alfabetização será um pesadelo de choro e frustração.</p>
+                    
+                    <div class="bg-indigo-50 border-l-4 border-indigo-600 p-4 rounded-r-lg text-indigo-900 shadow-sm mt-4">
+                        <strong class="block mb-1 text-indigo-800">A SOLUÇÃO RÁPIDA:</strong> Você respondeu que tem 15 minutos por dia. Isso é tudo que você precisa para destravar a coordenação dele usando o <strong>Kit Desmame Digital + 100 Atividades Grafomotoras</strong>.
                     </div>
                 </div>
                 
-                <div class="text-center mb-2 fade-in">
-                    <span class="text-slate-400 line-through text-sm font-bold">De R$ 147,00</span>
-                    <span class="text-red-600 font-black text-sm ml-2">por apenas R$ 67,90</span>
+                <div class="bg-red-50 p-3 rounded-lg border border-red-100 mb-6 fade-in text-center">
+                    <p class="text-red-700 font-bold text-sm">⚠️ Atenção: Para quem realizou o teste hoje, liberamos um desconto especial que expira ao fechar esta página.</p>
                 </div>
                 
-                <a href="https://pay.kiwify.com.br/GtEoYz9" class="pulse-btn block w-full bg-[#25D366] text-white text-center font-black text-[1.15rem] py-5 px-4 rounded-xl shadow-lg border-b-4 border-green-700 fade-in decoration-none tracking-tight">
-                    👉 ACESSAR O KIT DE DESMAME AGORA
+                <div class="text-center mb-3 fade-in flex flex-col items-center justify-center">
+                    <span class="text-slate-400 line-through text-sm font-bold">De R$ 147,00</span>
+                    <span class="text-green-600 font-black text-2xl tracking-tight">Por apenas R$ 67,90</span>
+                </div>
+                
+                <a href="https://pay.kiwify.com.br/GtEoYz9" class="pulse-btn block w-full bg-red-600 text-white text-center font-black text-[1.15rem] py-5 px-4 rounded-xl shadow-lg border-b-4 border-red-800 fade-in decoration-none tracking-tight hover:bg-red-700 transition-colors">
+                    👉 ACESSAR O KIT COM DESCONTO AGORA
                 </a>
+                
+                <div class="flex justify-center mt-4 space-x-2 fade-in">
+                    <span class="text-xs text-slate-400 font-semibold flex items-center">🔒 Compra 100% Segura e Garantida</span>
+                </div>
             `
         }
     </script>
